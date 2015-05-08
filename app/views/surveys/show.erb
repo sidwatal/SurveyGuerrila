@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="/surveys/<%=survey.id%>" method="post">
+  <form action="/survey/<%=survey.id%>" method="post">
     <h1><%= survey.title %></h1>
     <h6>A survey by <%= survey.creator.name %></h6>
     <% questions.each_with_index do |question, index| %>

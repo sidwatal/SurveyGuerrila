@@ -5,7 +5,13 @@ get '/survey/:id' do
 end
 
 post '/survey/:id' do
-
+  p params
+  p session
+  params[:choices].each do |choice, value|
+    Response.create(user_id: session[:user_id], choice_id: choice)
+  end
+    SurveysUser.create(user_id: session[:user_id], survey_id: params[:id], comment: params[:comment])
+  redirect "/"
 end
 
 put '/survey/:id' do
