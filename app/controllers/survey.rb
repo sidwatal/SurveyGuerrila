@@ -1,5 +1,7 @@
 get '/survey/:id' do
-
+  survey = Survey.find_by(id: params[:id])
+  questions = survey.questions
+  erb :"/surveys/show", locals:{survey: survey, questions: questions}
 end
 
 post '/survey/:id' do
