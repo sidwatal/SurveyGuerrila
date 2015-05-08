@@ -30,5 +30,5 @@ end
 get '/user/:user_id/survey/:id' do
   user = User.find_by(id: params[:user_id])
   survey = Survey.find_by(id: params[:id])
-  erb :'surveys/analytics.erb', locals: {user: user, survey: survey}
+  erb :'surveys/analytics', locals: {user: user, survey: survey}
 end
