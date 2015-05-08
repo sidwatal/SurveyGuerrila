@@ -1,0 +1,7 @@
+<div class='container'>
+  <h1><%= user.name + "'s " + survey.title %> Results</h1>
+  <% survey.responses.each do |response| %>
+  <p><%= response.choice.question.question_text %></p>
+  <p><%= response.choice.choice_text %></p>
+  <% end %>
+</div>
