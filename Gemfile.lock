@@ -82,6 +82,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.1)
   activesupport (~> 4.1)
+  bcrypt
   bcrypt-ruby
   capybara
   factory_girl

@@ -1,20 +1,12 @@
 get '/' do
 
+erb :index
 end
 
-post '/login' do
-
-end
 
 post '/logout' do
-
+  session[:user_id] = nil
+  redirect '/'
 end
 
-get '/signup' do
-
-end
-
-post '/signup' do
-
-end
 
