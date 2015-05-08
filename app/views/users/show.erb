@@ -1,11 +1,25 @@
 <h1> HI THIS IS THE USERS AREA </h1>
 
-<h2>WELCOME /user/ </h2>
+<h2>WELCOME /user/, to the dashboard. </h2>
 
 
-Check it out- here's where you can create a new survey!
-<form>
+<h3>Check it out- here's where you can create a new survey!</h3>
+<form action='/dashboard/create' method='POST'>
+<input type="text" name='title' placeholder="your survey title">
 <input type ="submit" value="create">
-
-
 </form>
+
+
+
+<div class="survey_links">
+<% surveys.each do |survey| %>
+<h2><%= survey.title %></h2>
+<p><a href='/user/<%=session[:user_id]%>/survey/<%=survey.id%>'>analytics for that one here</a>
+<% end %>
+</div>
+
+
+
+
+
+
