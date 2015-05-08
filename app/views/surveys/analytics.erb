@@ -1,7 +1,30 @@
 <div class='container'>
-  <h1><%= user.name + "'s " + survey.title %> Results</h1>
+<!--   <h1><%= user.name + "'s " + survey.title %> Results</h1>
   <% survey.responses.each do |response| %>
   <p><%= response.choice.question.question_text %></p>
   <p><%= response.choice.choice_text %></p>
   <% end %>
+ -->
+
+
+ <% survey.questions.each_with_index do |question, index| %>
+
+ <p><%=index + 1 %>. <%= question.question_text %></p>
+  <% question.choices.each do |choice| %>
+  <p><%= choice.choice_text %>---<%= Response.where(choice_id: choice.id).count %></p>
+
+
+    <% end %>
+ <% end %>
+
+<h3> Here's what folks had to say : </h3>
+
+<% SurveysUser.where(survey_id: survey.id).each do |survey_response| %>
+
+<p><%= survey_response.comment %></p>
+
+<% end %>
+
+
+
 </div>
