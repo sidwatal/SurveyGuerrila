@@ -37,9 +37,16 @@ end
 
 
 get '/dashboard' do
-
-erb :'/users/show'
+user = session[:user_id]
+surveys = Survey.where(creator_id: session[:user_id])
+erb :'/users/show', locals:{surveys: surveys}
 end
 
+
+post '/dashboard/create' do
+  new_survey = Survey.new(title: params[:title], creator_id: session[:user_id])
+  new_survey.save
+  redirect to "/survey/#{new_survey.id}/questions "
+end
 
 
