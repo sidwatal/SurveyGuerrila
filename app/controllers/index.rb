@@ -6,6 +6,10 @@ post '/login' do
 
 end
 
+post '/logout' do
+
+end
+
 get '/signup' do
 
 end
