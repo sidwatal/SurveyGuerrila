@@ -1,0 +1,13 @@
+<div class='container'>
+  <h1><%= survey.title %></h1>
+  <form action="/survey/<%= survey.id %>/questions" method="post">
+    <h3>Add a Question!<h3> <br>
+    Question: <br>
+    <input type="string" name="question_text" placeholder="What would you like to ask?"> <br>
+    <input type="string" name="choice[choice1]" placeholder="Choice here"> <br>
+    <input type="string" name="choice[choice2]" placeholder="Choice here"> <br>
+    <input type="string" name="choice[choice3]" placeholder="Choice here"> <br>
+    <input type="string" name="choice[choice4]" placeholder="Choice here"> <br>
+    <input type="submit" value="Add Question">
+  </form>
+</div>
