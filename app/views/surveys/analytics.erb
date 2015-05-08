@@ -1,17 +1,12 @@
 <div class='container'>
-<!--   <h1><%= user.name + "'s " + survey.title %> Results</h1>
-  <% survey.responses.each do |response| %>
-  <p><%= response.choice.question.question_text %></p>
-  <p><%= response.choice.choice_text %></p>
-  <% end %>
- -->
+
 
 
  <% survey.questions.each_with_index do |question, index| %>
 
  <p><%=index + 1 %>. <%= question.question_text %></p>
   <% question.choices.each do |choice| %>
-  <p><%= choice.choice_text %>---<%= Response.where(choice_id: choice.id).count %></p>
+  <p><%= choice.choice_text %>---<%= ((Response.where(choice_id: choice.id).count).to_f/(SurveysUser.where(survey_id: survey.id).count) * 100).to_i.to_s + "%" %></p>
 
 
     <% end %>
@@ -28,3 +23,18 @@
 
 
 </div>
+
+
+
+
+
+
+
+<div>
+ <% denominator = SurveysUser.where(survey_id: survey.id).count %>
+
+
+
+</div>
+<!-- (Response.where(choice_id: choice.id).count)/
+(SurveysUser.where(survey_id: survey.id).count) -->
