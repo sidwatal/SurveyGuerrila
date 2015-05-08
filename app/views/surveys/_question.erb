@@ -1,0 +1,6 @@
+<div class="question">
+  <h5><%= index+1 %>.&nbsp&nbsp<%= question.question_text %></h5>
+  <% question.choices.each do |choice| %>
+  <p><input type="radio" name="<%=choice.id%>">&nbsp&nbsp<%=choice.choice_text%></p>
+  <%end%>
+</div>
