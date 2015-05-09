@@ -65,3 +65,7 @@ code {
     margin-left: -1em;
     overflow: auto;
 }
+
+.progress {
+    width: 50px !important;
+}
