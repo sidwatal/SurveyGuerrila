@@ -1,20 +1,25 @@
-<h1> WELCOME TO SURVEY GUERRILLA </h1>
-
-
-<h3>Please Log - In Here</h3>
-<form action='/login' method='post'>
-  <div class='info'>
-    <label class='lable'>E-Mail</label>
-    <input type='text' name='email' placeholder='email'/>
+<div class="container">
+  <div class="jumbotron">
+    <h1> WELCOME TO SURVEY GUERRILLA </h1>
+  <h3>Please Log - In Here</h3>
+    <form action='/login' method='post'>
+    <div class="form-group">
+      <label class='lable'>E-Mail</label>
+      <input type='text' name='email' placeholder='email'/>
+    </div>
+    <div class="form-group">
+      <label class='lable'>password:</label>
+      <input type='password' name='password' placeholder='password'/>
+    </div>
+    <div class="form-group">
+      <input type='submit'id='login' class='btn' value='login'/>
+    </div>
+  </form>
+  <h4><a href='/signup'>Or sign up here</a></h4>
   </div>
-  <div class='info'>
-    <label class='lable'>password:</label>
-    <input type='password' name='password' placeholder='password'/>
-  </div>
-  <div class='info'>
-    <input type='submit'id='login' class='btn' value='login'/>
-  </div>
-</form>
+</div>
 
 
-<h4><a href='/signup'>Or sign up here</a></h4>
+
+
+

@@ -7,3 +7,9 @@ $(document).ready(function() {
     count++
   });
 });
+
+var postUrl = function(url){
+  $.post(url,function(){
+    window.location = '/'
+  });
+}
