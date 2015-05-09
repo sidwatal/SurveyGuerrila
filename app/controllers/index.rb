@@ -1,6 +1,6 @@
 get '/' do
   if session[:user_id]
-    redirect "/dashboard/#{session[:user_id]}"
+    redirect "/dashboard"
   else
     erb :index
   end

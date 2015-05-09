@@ -14,12 +14,10 @@ post '/survey/:id' do
   redirect "/"
 end
 
-put '/survey/:id' do
-
-end
-
 delete '/survey/:id' do
-
+  delete_survey = Survey.find_by(id: params[:id])
+  delete_survey.destroy
+  redirect '/dashboard'
 end
 
 get '/survey/:survey_id/questions' do |id|
