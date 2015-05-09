@@ -1,18 +1,17 @@
-<div class="container">
-  <% if is_authenticated? %>
-    <div class='survey'>
-      <form action="/survey/<%=survey.id%>" method="post">
-        <h1><%= survey.title %></h1>
-        <h6>A survey by <%= survey.creator.name %></h6>
-        <% questions.each_with_index do |question, index| %>
-          <%= erb :"/surveys/_question", locals:{question: question, index: index} %>
-        <% end %>
-        <h5>Comments</h5>
-        <textarea cols="40" rows="5" name="comment">Comment Area</textarea>
-        <p><input type="submit" value="Submit"></p>
-      </form>
-    </div>
-  <% else %>
-      <h2>You must log in to view the survey </h2>
-  <% end %>
+<% if is_authenticated? %>
+  <div class='survey'>
+    <form action="/survey/<%=survey.id%>" method="post">
+      <h1><%= survey.title %></h1>
+      <h6>A survey by <%= survey.creator.name %></h6>
+      <% questions.each_with_index do |question, index| %>
+        <%= erb :"/surveys/_question", locals:{question: question, index: index} %>
+      <% end %>
+      <h5>Comments</h5>
+      <textarea cols="40" rows="5" name="comment">Comment Area</textarea>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+  </div>
+<% else %>
+  <h2>You must log in to view the survey </h2>
+<% end %>
 </div>
