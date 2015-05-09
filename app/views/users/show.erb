@@ -4,7 +4,7 @@
 
 
 <h3>Check it out- here's where you can create a new survey!</h3>
-<form action='/dashboard/create' method='POST'>
+<form action='/dashboard/<%=user.id%>/create' method='POST'>
 <input type="text" name='title' placeholder="your survey title">
 <input type ="submit" value="create">
 </form>

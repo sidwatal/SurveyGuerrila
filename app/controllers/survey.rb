@@ -5,8 +5,6 @@ get '/survey/:id' do
 end
 
 post '/survey/:id' do
-  p params
-  p session
   params[:question].each do |question, choice|
     Response.create(user_id: session[:user_id], choice_id: choice)
   end
@@ -25,19 +23,30 @@ end
 
 get '/survey/:survey_id/questions' do |id|
   survey = Survey.find(id)
-  erb :'surveys/new_question', locals: {survey: survey}
+  if session[:user_id] == survey.creator.id
+    erb :'surveys/new_question', locals: {survey: survey}
+  else
+    p "hello"
+  end
 end
 
 post '/survey/:survey_id/questions' do
-  new_question = Question.create(survey_id: params[:survey_id], question_text: params[:question_text])
-  params[:choice].each { |key,value| Choice.create(question_id: new_question.id, choice_text: value) }
-  redirect "/survey/#{params[:survey_id]}/questions"
+  survey  = Survey.find_by(id: params[:survey_id])
+  if session[:user_id] == survey.creator.id
+    new_question = Question.create(survey_id: params[:survey_id], question_text: params[:question_text])
+    params[:choice].each { |key,value| Choice.create(question_id: new_question.id, choice_text: value) }
+    redirect "/survey/#{params[:survey_id]}/questions"
+  end
 end
 
 get '/user/:user_id/survey/:id' do
-  user = User.find_by(id: params[:user_id])
-  survey = Survey.find_by(id: params[:id])
-  erb :'surveys/analytics', locals: {user: user, survey: survey}
+  if session[:user_id].to_s == params[:user_id]
+    user = User.find_by(id: params[:user_id])
+    survey = Survey.find_by(id: params[:id])
+    erb :'surveys/analytics', locals: {user: user, survey: survey}
+  else
+    return [500, "You are not authorized to view this survey"]
+  end
 end
 
 
