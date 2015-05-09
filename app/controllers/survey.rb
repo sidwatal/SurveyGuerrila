@@ -25,8 +25,6 @@ get '/survey/:survey_id/questions' do |id|
   survey = Survey.find(id)
   if session[:user_id] == survey.creator.id
     erb :'surveys/new_question', locals: {survey: survey}
-  else
-    p "hello"
   end
 end
 
