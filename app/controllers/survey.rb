@@ -1,4 +1,5 @@
 get '/survey/:id' do
+  require_logged_in
   survey = Survey.find_by(id: params[:id])
   questions = survey.questions
   erb :"/surveys/show", locals:{survey: survey, questions: questions}
