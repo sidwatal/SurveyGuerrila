@@ -1,42 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
-  <!-- Load Vollkorn font -->
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="/css/application.css">
+
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
-<div id="content">
-  <header>
-
-    <div id="login-toolbar">
-        <% if is_authenticated? %>
-          <a href="/logout">Logout</a>
-        <% else %>
-          <form action='/login' method='post'>
-              <label class='lable'>E-Mail</label>
-              <input type='text' name='email' placeholder='email'/>
-              <label class='lable'>password:</label>
-              <input type='password' name='password' placeholder='password'/>
-              <input type='submit'id='login' class='btn' value='login'/>
-          </form>
-        <% end %>
+<header>
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid navigation">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-toggle">
+            <span class="sr-only">Toggle</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+              <a class="navbar-brand" href="/">Survey Guerilla</a>
       </div>
-  </header>
-  <%= yield %>
+
+  <% if is_authenticated? %>
+    <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">The Team</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="javascript:postUrl('/logout')"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   <% else %>
+    <form method='post' action='/login' class="navbar-form navbar-right">
+        <div class="form-group">
+          <input name="email" type="email" class="form-control form-field" placeholder="email">
+        </div>
+        <div class="form-group">
+          <input name="password" type="password" class="form-control form-field" placeholder="password">
+        </div>
+       <button type="submit" class="btn btn-default">Sign In</button>
+    </form>
+  <% end %>
+  </nav>
+</header>
+
+
+
+<%= yield %>
 </body>
+
+
+<script type="text/javascript">
+  function postUrl(url){
+    $.post(url,function(){
+      window.location = '/'
+    });
+  }
+</script>
 </html>
+
+

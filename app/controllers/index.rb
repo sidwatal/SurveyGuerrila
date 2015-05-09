@@ -6,7 +6,7 @@ get '/' do
   end
 end
 
-get '/logout' do
+post '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
