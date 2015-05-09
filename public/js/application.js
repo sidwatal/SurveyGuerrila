@@ -1,10 +1,13 @@
 $(document).ready(function() {
   var count = 3
-  $('.choices').on('click',".add", function(e){
+  $('.add').on('click', function(e){
     e.preventDefault();
-    $(this).hide();
-    $('.choices').append("<p class='option'><input type='string' name='choices[" + count + "]' placeholder='Choice here'><a class='add' href='#'>Add Choice</a></p>");
+    $('.choices').append("<p class='option'><input type='string' name='choices[" + count + "]' placeholder='Choice here'><a class='remove' href='#'>Remove Choice</a></p>");
     count++
+  });
+  $('.choices').on('click', '.remove', function(e){
+    e.preventDefault();
+    $(this).closest('p').remove();
   });
 });
 
