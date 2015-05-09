@@ -24,11 +24,11 @@
   <header>
 
     <div id="login-toolbar">
-
-        <a href="/logout">Logout</a>
-
-        <a href="/login">Login</a>
-
+        <% if is_authenticated? %>
+          <a href="/logout">Logout</a>
+        <% else %>
+          <a href="/">Login</a>
+        <% end %>
   </header>
   <%= yield %>
 </div>
