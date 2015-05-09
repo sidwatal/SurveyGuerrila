@@ -16,3 +16,13 @@ var postUrl = function(url){
     window.location = '/'
   });
 }
+
+// var completionPercent = function(){
+//   $.ajax({
+//     url:
+//   }).done(function(response)){
+
+//   }).fail(function(error)){
+
+//   });
+// }
