@@ -15,9 +15,9 @@
 var bardata = []
 
   <% survey.questions.each do |question| %>
-  curr_q = []
+  var curr_q = {}
     <% question.choices.each do |choice| %>
-      curr_q.push(<%= response_percentage(choice, survey) %>)
+      curr_q['<%= choice.choice_text %>'] = <%= response_percentage(choice, survey) %>
     <% end %>
     bardata.push(curr_q)
   <% end %>
