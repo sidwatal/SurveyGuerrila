@@ -33,7 +33,7 @@ post '/survey/:survey_id/questions' do
   survey  = Survey.find_by(id: params[:survey_id])
   if session[:user_id] == survey.creator.id
     new_question = Question.create(survey_id: params[:survey_id], question_text: params[:question_text])
-    params[:choice].each { |key,value| Choice.create(question_id: new_question.id, choice_text: value) }
+    params[:choice].each { |key,value| Choice.create(question_id: new_question.id, choice_text: key) }
     redirect "/survey/#{params[:survey_id]}/questions"
   end
 end
