@@ -1,6 +1,6 @@
 <h1> HI THIS IS THE USERS AREA </h1>
 
-<h2>WELCOME /user/, to the dashboard. </h2>
+<h2>WELCOME <%= user.name %>, to the dashboard. </h2>
 
 
 <h3>Check it out- here's where you can create a new survey!</h3>
@@ -14,6 +14,10 @@
 <div class="survey_links">
 <% surveys.each do |survey| %>
 <h2><%= survey.title %></h2>
+<form action='/survey/<%=survey.id%>' method='POST'>
+<input type="hidden" name="_method" value="delete">
+<input type ="submit" value="delete">
+</form>
 <p><a href='/user/<%=session[:user_id]%>/survey/<%=survey.id%>'>analytics for that one here</a>
 <% end %>
 </div>
