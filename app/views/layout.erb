@@ -27,7 +27,13 @@
         <% if is_authenticated? %>
           <a href="/logout">Logout</a>
         <% else %>
-          <a href="/">Login</a>
+          <form action='/login' method='post'>
+              <label class='lable'>E-Mail</label>
+              <input type='text' name='email' placeholder='email'/>
+              <label class='lable'>password:</label>
+              <input type='password' name='password' placeholder='password'/>
+              <input type='submit'id='login' class='btn' value='login'/>
+          </form>
         <% end %>
   </header>
   <%= yield %>

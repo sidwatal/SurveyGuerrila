@@ -15,10 +15,8 @@ post '/login' do
   current_user = User.find_by(email: params[:email])
   if current_user && current_user.authenticate(params[:password])
     session[:user_id] = current_user.id
-    p session[:user_id]
-    redirect "/dashboard/#{session[:user_id]}"
+    redirect back
   else
-    p "unauthorized log-in attempt"
-    redirect '/'
+    redirect '/?error=unauthorized'
   end
 end

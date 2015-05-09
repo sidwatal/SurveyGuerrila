@@ -21,5 +21,4 @@ class User < ActiveRecord::Base
   def authenticate(plaintext_password)
     self.password == plaintext_password
   end
-
 end

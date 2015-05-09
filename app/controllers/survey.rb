@@ -1,11 +1,11 @@
 get '/survey/:id' do
-  require_logged_in
   survey = Survey.find_by(id: params[:id])
   questions = survey.questions
   erb :"/surveys/show", locals:{survey: survey, questions: questions}
 end
 
 post '/survey/:id' do
+  require_logged_in
   params[:question].each do |question, choice|
     Response.create(user_id: session[:user_id], choice_id: choice)
   end
