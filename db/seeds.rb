@@ -1,5 +1,5 @@
-# User.create(name:"Sherman", email:"shermanng10@gmail.com", password_hash:"1234")
-# User.create(name:"Sid", email:"sid.watal@gmail.com", password_hash:"5678")
+User.create(name:"Sherman", email:"shermanng10@gmail.com", password:"1234")
+User.create(name:"Sid", email:"sid.watal@gmail.com", password:"5678")
 
 Survey.create(title:"Ice Creams!", creator_id: 1)
 
