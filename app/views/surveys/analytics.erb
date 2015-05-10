@@ -3,13 +3,16 @@
   <h3>The Questions</h3>
   <% survey.questions.each_with_index do |question, index| %>
     <p><%=index + 1 %>. <%= question.question_text %></p>
+    <% question.choices.each do |choice| %>
+      <p><%= choice.choice_text %></p>
+    <% end %>
   <% end %>
   <h3> Here's what folks had to say : </h3>
   <% survey.surveys_users.each do |survey_response| %>
     <p><%= survey_response.comment %></p>
   <% end %>
 </div>
-<h2>Results</h2>
+  <h2>Results</h2>
 
 <div id='piechart'></div>
 
