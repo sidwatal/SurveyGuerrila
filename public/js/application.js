@@ -55,6 +55,7 @@ var addQuestion = function(e){
     method: e.target.method,
     data: $(e.target).serialize(),
   }).done(function(response){
+    $('span#num_questions').html(response);
     $('form#create_question')[0].reset();
   });
 }

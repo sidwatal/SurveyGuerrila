@@ -35,6 +35,7 @@ post '/survey/:survey_id/questions' do
     params[:choices].each { |key, value| Choice.create(question_id: new_question.id, choice_text: value) }
     redirect "/survey/#{params[:survey_id]}/questions" if !request.xhr?
   end
+  return survey.questions.length.to_s
 end
 
 get '/survey/:survey_id/share' do
