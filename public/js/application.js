@@ -11,6 +11,11 @@ $(document).ready(function() {
   });
 
   $('.remove_survey').on('submit', deleteSurvey);
+<<<<<<< HEAD
+=======
+
+  $('#create_question').on('submit', addQuestion);
+>>>>>>> d6fcb009b11ad4ef26d4dda3af22dd77c54b1643
 
   $('#create_question').on('submit', addQuestion);
 
