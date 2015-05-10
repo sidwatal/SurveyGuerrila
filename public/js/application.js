@@ -12,6 +12,18 @@ $(document).ready(function() {
 
   $('.remove_survey').on('submit', deleteSurvey)
 
+  $('#scott-pic').hover(function(){
+    $('#scott-bio').toggle();
+    $('#scott-bio').toggleClass("animated fadeInDownBig");
+  });
+  $('#sherm-pic').hover(function(){
+    $('#sherm-bio').toggle();
+    $('#sherm-bio').toggleClass("animated fadeInDownBig");
+  });
+  $('#sid-pic').hover(function(){
+    $('#sid-bio').toggle();
+    $('#sid-bio').toggleClass("animated fadeInDownBig");
+  });
 });
 
 var postUrl = function(url){
@@ -33,3 +45,4 @@ var deleteSurvey = function(e){
   });
 
 }
+

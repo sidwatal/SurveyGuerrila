@@ -6,11 +6,11 @@ end
 
 post '/survey/:id' do
   require_logged_in
+  new_survey_response = SurveysUser.new(user_id: session[:user_id], survey_id: params[:id], comment: params[:comment])
+  return [500, "You have already taken this survey."] unless new_survey_response.save
   params[:question].each do |question, choice|
     Response.create(user_id: session[:user_id], choice_id: choice)
   end
-    new_survey_response = SurveysUser.new(user_id: session[:user_id], survey_id: params[:id], comment: params[:comment])
-    return [500, "You have already taken this survey."] unless new_survey_response.save
   redirect "/"
 end
 
