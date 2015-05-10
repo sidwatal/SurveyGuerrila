@@ -20,3 +20,7 @@ post '/login' do
     redirect '/?error=unauthorized'
   end
 end
+
+get '/team' do
+  erb :team
+end
