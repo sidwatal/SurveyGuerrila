@@ -72,6 +72,7 @@ code {
     padding: 10px
 }
 
-.progress {
-    width: 50px !important;
+
+#share-survey-link {
+    width: 250px;
 }
