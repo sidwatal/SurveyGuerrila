@@ -102,7 +102,12 @@ code {
   width: 360px;
 }
 
-
+.question-input {
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+}
 
 
 

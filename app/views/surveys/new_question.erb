@@ -3,7 +3,7 @@
   <form id='create_question' action="/survey/<%= survey.id %>/questions" method="post">
     <h3>Add a Question!<h3> <br>
     Question: <br>
-    <input type="string" name="question_text" placeholder="What would you like to ask?"> <br>
+    <input type="string" name="question_text" class="question-input" placeholder="What would you like to ask?"> <br>
     <div class="choices">
       <p><input type="string" name="choices[1]" placeholder="Choice here"></p>
       <p class="option"><input type="string" name="choices[2]" placeholder="Choice here"></p>
