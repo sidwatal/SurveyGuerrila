@@ -17,7 +17,7 @@ end
 delete '/survey/:id' do
   delete_survey = Survey.find_by(id: params[:id])
   delete_survey.destroy
-  redirect '/dashboard'
+  redirect '/dashboard' if !request.xhr?
 end
 
 get '/survey/:survey_id/questions' do |id|
