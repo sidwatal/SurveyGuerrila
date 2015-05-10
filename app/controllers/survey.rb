@@ -37,6 +37,11 @@ post '/survey/:survey_id/questions' do
   end
 end
 
+get '/survey/:survey_id/share' do
+  survey = Survey.find_by(id: params[:survey_id])
+  erb :'/surveys/finished', locals:{survey: survey}
+end
+
 get '/user/:user_id/survey/:id' do
   if session[:user_id].to_s == params[:user_id]
     user = User.find_by(id: params[:user_id])

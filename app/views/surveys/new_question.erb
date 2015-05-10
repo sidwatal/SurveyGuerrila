@@ -8,7 +8,10 @@
       <p><input type="string" name="choices[1]" placeholder="Choice here"></p>
       <p class="option"><input type="string" name="choices[2]" placeholder="Choice here"></p>
     </div>
-    <a class="add" href="#">Add Choice</a>
+    <p><a class="add" href="#">Add Choice</a></p>
     <input type="submit" value="Add Question">
+  </form>
+  <form action="/survey/<%=survey.id%>/share" method="get">
+    <p><input type="submit" value="Finish and Share" /></p>
   </form>
 </div>
