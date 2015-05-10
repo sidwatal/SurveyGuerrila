@@ -9,6 +9,9 @@ $(document).ready(function() {
     e.preventDefault();
     $(this).closest('p').remove();
   });
+
+  $('.remove_survey').on('submit', deleteSurvey)
+
 });
 
 var postUrl = function(url){
@@ -17,12 +20,16 @@ var postUrl = function(url){
   });
 }
 
-// var completionPercent = function(){
-//   $.ajax({
-//     url:
-//   }).done(function(response)){
+var deleteSurvey = function(e){
+  e.preventDefault();
 
-//   }).fail(function(error)){
+  $.ajax({
+    url: e.target.action,
+    method: 'delete',
+  }).done(function(response){
+    $(e.target).parent().remove();
+  }).error(function(error){
+    console.log(error);
+  });
 
-//   });
-// }
+}

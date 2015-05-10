@@ -11,17 +11,18 @@
 
 
 
-
+<div id="surveys">
   <% surveys.each do |survey| %>
     <div class="survey_links">
       <h2><p><a href='/user/<%=session[:user_id]%>/survey/<%=survey.id%>'><%= survey.title %></a></h2>
       <p>Total Responses: <%= survey.surveys_users.count %></p>
-      <form action='/survey/<%=survey.id%>' method='POST'>
+      <form class='remove_survey' action='/survey/<%=survey.id%>' method='POST'>
         <input type="hidden" name="_method" value="delete">
         <input type ="submit" value="delete">
       </form>
     </div>
   <% end %>
+</div>
 
 
 
