@@ -10,7 +10,9 @@ $(document).ready(function() {
     $(this).closest('p').remove();
   });
 
-  $('.remove_survey').on('submit', deleteSurvey)
+  $('.remove_survey').on('submit', deleteSurvey);
+
+  $('#create_question').on('submit', addQuestion);
 
   $('#scott-pic').hover(function(){
     $('#scott-bio').toggle();
@@ -43,6 +45,17 @@ var deleteSurvey = function(e){
   }).error(function(error){
     console.log(error);
   });
+}
 
+var addQuestion = function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: e.target.action,
+    method: e.target.method,
+    data: $(e.target).serialize(),
+  }).done(function(response){
+    $('form#create_question')[0].reset();
+  });
 }
 
