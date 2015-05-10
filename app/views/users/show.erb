@@ -5,22 +5,23 @@
 
 <h3>Check it out- here's where you can create a new survey!</h3>
 <form action='/dashboard/<%=user.id%>/create' method='POST'>
-<input type="text" name='title' placeholder="your survey title">
+<input type="text" name='title' placeholder="your survey title" required>
 <input type ="submit" value="create">
 </form>
 
 
 
-<div class="survey_links">
-<% surveys.each do |survey| %>
-<h2><%= survey.title %></h2>
-<form action='/survey/<%=survey.id%>' method='POST'>
-<input type="hidden" name="_method" value="delete">
-<input type ="submit" value="delete">
-</form>
-<p><a href='/user/<%=session[:user_id]%>/survey/<%=survey.id%>'>analytics for that one here</a>
-<% end %>
-</div>
+
+  <% surveys.each do |survey| %>
+    <div class="survey_links">
+      <h2><p><a href='/user/<%=session[:user_id]%>/survey/<%=survey.id%>'><%= survey.title %></a></h2>
+      <p>Total Responses: <%= survey.surveys_users.count %></p>
+      <form action='/survey/<%=survey.id%>' method='POST'>
+        <input type="hidden" name="_method" value="delete">
+        <input type ="submit" value="delete">
+      </form>
+    </div>
+  <% end %>
 
 
 
