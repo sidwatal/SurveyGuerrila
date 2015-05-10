@@ -96,9 +96,11 @@ code {
     overflow: auto;
 }
 
-
-
-
+#piechart {
+  height: 360px;
+  position: relative;
+  width: 360px;
+}
 
 
 

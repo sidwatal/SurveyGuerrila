@@ -1,3 +1,4 @@
+
 <div class='container'>
   <% survey.questions.each_with_index do |question, index| %>
     <p><%=index + 1 %>. <%= question.question_text %></p>
@@ -11,8 +12,21 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-var bardata = []
+
+<div class="experiment_container">
+  <h2>D3 Graphic</h2>
+  <div id="chart"></div>
+
+</div>
+
+<h4>AND OTHER STUFF</h4>
+
+<div id='piechart'></div>
+
+<script>
+ $(document).ready(function(){
+
+var piedata = []
   <% survey.questions.each do |question| %>
     curr_q = []
     <% question.choices.each do |choice| %>
@@ -21,6 +35,20 @@ var bardata = []
       curr_choice["value"]=<%= response_percentage(choice, survey) %>
       curr_q.push(curr_choice)
     <% end %>
-    bardata.push(curr_q)
+    piedata.push(curr_q)
   <% end %>
+
+    for(i=0;i<piedata.length;i++){
+        var data = piedata[i]
+
+
+      var pie = new d3pie("#piechart", {
+  data: {
+    content: data
+  }
+});
+    }
+})
 </script>
+
+
