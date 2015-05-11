@@ -46,14 +46,7 @@ var width = 400,
     .on('mouseover', function(d){
     var nodeSelection = d3.select(this)
     nodeSelection.select("text").style({color:"red"});
-
-
-    console.log("YOU ARE HOVERING OVER A SECTION")
-
-
-          });
-
-
+    });
 
     var text = d3.selectAll('g.slice')
       .append('text')
@@ -67,16 +60,6 @@ var width = 400,
       .attr('transform', function(d){
           d.innerRadius = 0;
           d.outerRadius = radius;
-          return 'translate('+arc.centroid(d)+')'
-      })
-
-
-
-console.log('made a pie')
-}
-
-
-
-
-
-
+          return 'translate('+arc.centroid(d)+')';
+      });
+};
