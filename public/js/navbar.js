@@ -1,3 +1,6 @@
+
+// Nav bar js has a submit answer click? 
+// we should probably remove this file.
 $(document).ready(function() {
   $('#submit_answer').on('click', nextQuestion)
 });

@@ -12,6 +12,7 @@ helpers do
     !!session[:user_id]
   end
 
+  #ZM: Both of these belong in a model
   # Validation for the creation of a new User object
   def user_params(params)
     params.each_with_object({}) do |(key,value), obj|

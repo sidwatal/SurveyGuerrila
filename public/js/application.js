@@ -14,6 +14,7 @@ $(document).ready(function() {
 
   $('#create_question').on('submit', addQuestion);
 
+  //This could be pulled into a named function to dry it up.
   $('#scott-pic').hover(function(){
     $('#scott-bio').toggle();
     $('#scott-bio').toggleClass("animated fadeInDownBig");
